@@ -57,6 +57,8 @@ def get_error(z, dt):
     z_exact = b0 * (zt / g)**.5 * np.sin((g / zt)**.5 * t) +\
         (z0 - zt) * np.cos((g / zt)**.5 * t) + zt
 
+    return dt * np.sum(np.abs(z - z_exact))
+
 
 if __name__ == '__main__':
     dt_values = np.array([0.1, 0.05, 0.01, 0.005, 0.001, 0.0001])
