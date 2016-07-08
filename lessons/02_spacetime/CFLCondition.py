@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-from matplo import rcParams
+from matplotlib import rcParams
 rcParams['font.family'] = 'serif'
 rcParams['font.size'] = 16
 
@@ -9,10 +9,11 @@ rcParams['font.size'] = 16
 def linearconv(nx):
     dx = 2 / (nx - 1)
     nt = 20
-    dt = 0.025
+    sigma = 0.5
+    x = np.linspace(0, 2, nx)
     c = 1
 
-    x = np.linspace(0, 2, nx)
+    dt = sigma * dx
 
     u = np.ones(nx)
     lbound = np.where(x >= 0.5)
@@ -30,5 +31,5 @@ def linearconv(nx):
     plt.show()
 
 
-for nx in [41, 61, 71, 85]:
+for nx in [41, 61, 71, 85, 121]:
     linearconv(nx)
