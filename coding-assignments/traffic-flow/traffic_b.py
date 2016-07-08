@@ -10,7 +10,7 @@ rcParams['font.size'] = 16
 
 
 # Problem parameters
-Vmax = 80 / 3.6  # speed of traffic (m/s)
+Vmax = 136 / 3.6  # speed of traffic (m/s)
 rhomax = 250 / 1000  # the number of cars per unit length of highway (cars/m)
 L = 11 * 1000  # logitude of the highway (m)
 
@@ -20,11 +20,11 @@ dt = 0.001 * 3600  #  (s)
 
 # Initial conditions
 x = np.linspace(0, L, nx)
-rho0 = np.ones(nx) * (10 / 1000)
+rho0 = np.ones(nx) * (20 / 1000)
 rho0[10:20] = 50 / 1000
 
 # Boundary condition
-# rho(0, t) = 10 / 1000  (cars/m)
+# rho(0, t) = 20 / 1000  (cars/m)
 
 
 def V(rho_t):
@@ -52,7 +52,7 @@ def rho(t):
     for n in range(nt):
         nrho = rho.copy()
         rho[1:] = nrho[1:] - dt / dx * (F(nrho[1:]) - F(nrho[: -1]))
-        rho[0] = 10 / 1000  # Boundary condition (cars/m)
+        rho[0] = 20 / 1000  # Boundary condition (cars/m)
 
     return rho
 
@@ -69,8 +69,8 @@ if __name__ == '__main__':
 
     print()
 
-    print('The minimum velocity at time t = 6 (min) in (m/s) is: %.2f (m/s)' %
-          (V(np.max(rho(6 * 60)))))
+    print('The minimum velocity at time t = 3 (min) in (m/s) is: %.2f (m/s)' %
+          (V(np.max(rho(3 * 60)))))
 
     plt.plot(x, rho(3 * 60), color='#003366', ls='--', lw=3)
 
