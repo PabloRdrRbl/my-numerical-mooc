@@ -4,6 +4,12 @@ This is my work on the [**"Practical Numerical Methods with Python"**](http://op
 
 I have worked through the resouces provided in this MOOC and its [GitHub repo](https://github.com/numerical-mooc/numerical-mooc). Which are divided in six different modules.
 
+Here you can see my progress on this course given these are the **open bagdages** that I've earnt in this course. 
+
+------------------
+<img src="http://openedx.seas.gwu.edu:5000/fileearn.php?bgid=37131c110ab85abbb2b7698f87a71c5723ea20a4&7ccc956221a5da47d8e6304229fb49d71905bbb4" width="160">
+------------------
+
 ### Course Modules
 
 1. [**The phugoid model of glider flight.**](https://github.com/numerical-mooc/numerical-mooc/tree/master/lessons/01_phugoid)
