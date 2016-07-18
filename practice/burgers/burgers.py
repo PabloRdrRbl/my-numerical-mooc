@@ -18,9 +18,12 @@ def maccormack(u, nt, dt, dx):
     un[:] = u.copy()
     ustar = u.copy()
 
+    epsilon = 0.3
+
     for n in range(1, nt):
         F = computeF(u)
-        ustar[: -1] = u[: -1] - dt / dx * (F[1:] - F[:-1])
+        ustar[1: -1] = (u[1: -1] - dt / dx * (F[2:] - F[1:-1]) +
+                       epsilon * (u[2:] - 2 * u[1: -1] + u[:-2]))
         Fstar = computeF(ustar)
         un[n, 1:] = 0.5 * (u[1:] + ustar[1:] - dt /
                            dx * (Fstar[1:] - Fstar[:-1]))
