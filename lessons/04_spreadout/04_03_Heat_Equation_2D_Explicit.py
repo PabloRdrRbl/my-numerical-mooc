@@ -15,8 +15,8 @@ def ftcs(T, nt, alpha, dt, dx, dy):
 
         T[1: -1, 1: -1] = (Tn[1:-1, 1:-1] + alpha *
                            (dt / dy**2 * (Tn[2:, 1:-1] - 2 * Tn[1:-1, 1:-1] +
-                                          Tn[:-2, 1:-1]) + \
-                            dt / dx**2 * (Tn[1:-1, 2:] - 2 * Tn[1:-1, 1:-1] + \
+                                          Tn[:-2, 1:-1]) +
+                            dt / dx**2 * (Tn[1:-1, 2:] - 2 * Tn[1:-1, 1:-1] +
                                           Tn[1:-1, :-2])))
 
         # Enforce Neumann BCs
@@ -26,7 +26,7 @@ def ftcs(T, nt, alpha, dt, dx, dy):
         # Check if we reached T = 70ºC
         if T[j_mid, i_mid] >= 70:
             print("Center of plate reached 70ºC at time {0:.2f}s.".format(dt *
-                                                                           n))
+                                                                          n))
             break
 
     if T[j_mid, i_mid] < 70:
@@ -54,6 +54,9 @@ alpha = 1e-4
 Ti = np.ones((ny, nx)) * 20
 Ti[0, :] = 100
 Ti[:, 0] = 100
+# Use if you want to change the boundary
+# Ti[-1, :] = 100
+# Ti[:, -1] = 100
 
 # Time step
 sigma = 0.25
