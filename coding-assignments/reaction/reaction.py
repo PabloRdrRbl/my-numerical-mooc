@@ -7,9 +7,18 @@ import matplotlib.cm as cm
 # Grid points with dimension 192x192
 n = 192
 
-# Bacteria
-Du, Dv, F, k = 0.00016, 0.00008, 0.035, 0.065
 
+# Du, Dv, F, k = 0.00016, 0.00008, 0.035, 0.065 # Bacteria 1
+# Du, Dv, F, k = 0.00014, 0.00006, 0.035, 0.065 # Bacteria 2
+# Du, Dv, F, k = 0.00016, 0.00008, 0.060, 0.062  # Coral
+# Du, Dv, F, k = 0.00019, 0.00005, 0.060, 0.062  # Fingerprint
+Du, Dv, F, k = 0.00010, 0.00010, 0.018, 0.050  # Spirals
+# Du, Dv, F, k = 0.00012, 0.00008, 0.020, 0.050 # Spirals Dense
+# Du, Dv, F, k = 0.00010, 0.00016, 0.020, 0.050 # Spirals Fast
+# Du, Dv, F, k = 0.00016, 0.00008, 0.020, 0.055  # Unstable
+# Du, Dv, F, k = 0.00016, 0.00008, 0.050, 0.065 # Worms 1
+# Du, Dv, F, k = 0.00016, 0.00008, 0.054, 0.063 # Worms 2
+# Du, Dv, F, k = 0.00016, 0.00008, 0.035, 0.060 # Zebrafish
 # Domain is 5m x 5m
 dh = 5 / (n - 1)
 
@@ -29,10 +38,8 @@ V = uvinitial['V']
 
 # Ploting the initial conditions
 fig = plt.figure(figsize=(8, 5))
-plt.subplot(121)
 plt.imshow(U, cmap=cm.RdBu)
 plt.xticks([]), plt.yticks([])
-plt.subplot(122)
 plt.imshow(V, cmap=cm.RdBu)
 plt.xticks([]), plt.yticks([])
 
@@ -77,10 +84,8 @@ def reaction(U, V, Du, Dv, F, k, dh, dt, nt):
 
         if (t % 100 == 0):
             fig = plt.figure(figsize=(8, 5))
-            plt.subplot(121)
             plt.imshow(U, cmap=cm.RdBu)
             plt.xticks([]), plt.yticks([])
-            plt.subplot(122)
             plt.imshow(V, cmap=cm.RdBu)
             plt.xticks([]), plt.yticks([])
 
@@ -91,4 +96,4 @@ def reaction(U, V, Du, Dv, F, k, dh, dt, nt):
 
 U, V = reaction(U.copy(), V.copy(), Du, Dv, F, k, dh, dt, nt)
 
-print(U[100,::40])
+print(U[100, ::40])
