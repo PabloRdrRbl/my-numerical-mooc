@@ -47,18 +47,18 @@ plt.show()
 def L2_error(p, pn):
     return np.sqrt(np.sum((p - pn)**2 / np.sum(pn**2)))
 
-def laplace2d(p, target):
-    12norm = 1
+def laplace2d(p, l2_target):
+    l2norm = 1
     pn = np.empty_like(p)
     iterations = 0
 
-    while 12norm > 12_target:
+    while l2norm > l2_target:
         pn = p.copy()
         p[1: -1, 1: -1] = (0.25 * (pn[1: -1, 2:] + pn[1: -1, :-2] +
                            pn[2:, 1: -1] + pn[:-2, 1: -1]))
 
         p[1: -1, -1] = p[1: -1, -2]
-        12norm = L2_error(p, pn)
+        l2norm = L2_error(p, pn)
 
     return p
 
@@ -91,24 +91,25 @@ def laplace_IG(nx):
     # Dirichlet BC
     p[:, 0] = 0
     p[0, :] = 0
-    p[-1, :] = np.sin(1.5 * np.pi x / x[-1])
+    p[-1, :] = np.sin(1.5 * np.pi * x / x[-1])
 
     return p, x, y
 
 nx_values = [11, 21, 41, 81]
-12_target = 1e-8
+l2_target = 1e-8
 
 error = np.empty_like(nx_values, dtype=np.float)
 
 for i, nx in enumerate(nx_values):
     p, x, y = laplace_IG(nx)
 
-    p = laplace2d(p.copy(), 12_target)
+    p = laplace2d(p.copy(), l2_target)
 
     p_an = p_analytical(x, y)
 
     error[i] = L2_error(p, p_an)
 
+    
 plt.figure(figsize=(6,6))
 plt.grid(True)
 plt.xlabel(r'$n_x$', fontsize=18)
@@ -119,19 +120,20 @@ plt.axis('equal')
 
 plt.show()
 
-def laplace2d_neumann(p, 12_target):
+def laplace2d_neumann(p, l2_target):
     l2norm = 1
-    pn = numpy.empty_like(p)
+    pn = np.empty_like(p)
     iterations = 0
+
     while l2norm > l2_target:
         pn = p.copy()
         p[1:-1,1:-1] = (0.25 * (pn[1:-1,2:] + pn[1:-1, :-2] +
                         pn[2:, 1:-1] + pn[:-2, 1:-1]))
 
         ##2nd-order Neumann B.C. along x = L
-        p[1:-1,-1] = .25 * (2*pn[1:-1,-2] + pn[2:, -1] + pn[:-2, -1])
+        p[1:-1, -1] = 0.25 * (2*pn[1:-1,-2] + pn[2:, -1] + pn[:-2, -1])
 
-    l2norm = L2_error(p, pn)
+        l2norm = L2_error(p, pn)
 
     return p
 
@@ -139,7 +141,7 @@ def laplace2d_neumann(p, 12_target):
 nx_values = [11, 21, 41, 81]
 l2_target = 1e-8
 
-error = numpy.empty_like(nx_values, dtype=numpy.float)
+error = np.empty_like(nx_values, dtype=np.float)
 
 
 for i, nx in enumerate(nx_values):
@@ -151,7 +153,7 @@ for i, nx in enumerate(nx_values):
 
     error[i] = L2_error(p, p_an)
 
-
+print("ola")
 plt.figure(figsize=(6,6))
 plt.grid(True)
 plt.xlabel(r'$n_x$', fontsize=18)
@@ -160,4 +162,3 @@ plt.ylabel(r'$L_2$-norm of the error', fontsize=18)
 plt.loglog(nx_values, error, color='k', ls='--', lw=2, marker='o')
 plt.axis('equal')
 plt.show()
-            
