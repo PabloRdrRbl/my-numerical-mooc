@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from scipy.linalg import solve
+from scipy.sparse import diags
 
 from matplotlib import rcParams, cm
 rcParams['font.family'] = 'serif'
@@ -73,6 +74,21 @@ def constructMatrix(nx, ny, sigma):
             row_number += 1  # Jump to next row of the matrix!
 
     return A
+
+
+def constructMatrix_improved(nx, ny, sigma):
+    A = np.diag(np.ones((nx - 2) * (ny - 2)) * (sigma + 4))
+
+    d1 = np.diag(np.ones((nx - 2) * (ny - 2) - 1) * -1, -1)
+    d2 = np.diag(np.ones((nx - 2) * (ny - 2) - 1) * -1, 1)
+
+    d3 = np.diag(np.ones((nx - 2) * (ny - 2) - (nx - 2)) * -1, nx - 2)
+    d4 = np.diag(np.ones((nx - 2) * (ny - 2) - (nx - 2)) * -1, -(nx - 2))
+
+    row_number = 0  # row counter
+
+    for j in range(1, ny - 1):
+        for i in range(1, nx - 1):
 
 
 def generateRHS(nx, ny, sigma, T, T_bc):
