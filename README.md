@@ -8,7 +8,7 @@ Here you can see my progress on this course given these are the [**open badges**
 
 ------------------
 
-<img src="http://openedx.seas.gwu.edu:5000/fileearn.php?bgid=37131c110ab85abbb2b7698f87a71c5723ea20a4&7ccc956221a5da47d8e6304229fb49d71905bbb4" width="160"><img src="http://openedx.seas.gwu.edu:5000/fileearn.php?bgid=7ef25a3cfdc983cfa1742bad7e19ab9e368bb9f0&dc2fe808af85d2bb8f28db226f7c1107b496f52d" width="160"><img src="http://openedx.seas.gwu.edu:5000/fileearn.php?bgid=0b87e9c2ebd95929fc3dc0a4a35ecf8d09669612&81f8f13bd2327bec500bdfe35976c2425a71eac3" width="160">
+<img src="http://openedx.seas.gwu.edu:5000/fileearn.php?bgid=37131c110ab85abbb2b7698f87a71c5723ea20a4&7ccc956221a5da47d8e6304229fb49d71905bbb4" width="160"><img src="http://openedx.seas.gwu.edu:5000/fileearn.php?bgid=7ef25a3cfdc983cfa1742bad7e19ab9e368bb9f0&dc2fe808af85d2bb8f28db226f7c1107b496f52d" width="160"><img src="http://openedx.seas.gwu.edu:5000/fileearn.php?bgid=0b87e9c2ebd95929fc3dc0a4a35ecf8d09669612&81f8f13bd2327bec500bdfe35976c2425a71eac3" width="160"><img src="http://openedx.seas.gwu.edu:5000/fileearn.php?bgid=55012b43c3850930f4c0577f538627ea464b1c45&5f93458802fcf6ed603657499e33ff988e80ee43" width="160">
 
 ------------------
 
