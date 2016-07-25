@@ -90,3 +90,5 @@ def reaction(U, V, Du, Dv, F, k, dh, dt, nt):
     return U, V
 
 U, V = reaction(U.copy(), V.copy(), Du, Dv, F, k, dh, dt, nt)
+
+print(U[100,::40])
