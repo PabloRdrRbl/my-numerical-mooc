@@ -2,7 +2,7 @@
 
 This is my work on the [**"Practical Numerical Methods with Python"**](http://openedx.seas.gwu.edu/courses/GW/MAE6286/2014_fall/about) MOOC by Lorena Barba.
 
-I have worked through the resouces provided in this MOOC and its [GitHub repo](https://github.com/numerical-mooc/numerical-mooc). Which are divided in six different modules.
+I have worked through the resouces provided in this MOOC and its [GitHub repo](https://github.com/numerical-mooc/numerical-mooc). Which are divided in five different modules (but increasing).
 
 Here you can see my progress on this course given these are the [**open badges**](https://backpack.openbadges.org/share/73382861cbdfcee9ee1313ee359d9dda/) that I've earned in this course. 
 
